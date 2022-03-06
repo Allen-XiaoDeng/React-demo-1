@@ -32,18 +32,19 @@ class Son extends React.Component {
         我是儿子，我爸对我说{this.props.messageForson}
         儿子 n: {this.state.n}
         <button onClick={() => this.add()}>+1</button>
-        <Grandson/>
+        <Grandson messageForGrandson="儿子你好"/>
       </div>
     )
   }
 }
 
-const Grandson = () => {
+const Grandson = (props) => {
   const [n, setN] = React.useState(0)
   return (
     <div className="Grandson">
       孙子 n:{n}
       <button onClick={() => setN(n + 1)}>+1</button>
+      我是孙子，我爸对我说 {props.messageForGrandson}
     </div>
   )
 }
