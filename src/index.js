@@ -17,24 +17,26 @@ class Son extends React.Component {
   constructor() {
     super()
     this.state = {
-      n: 0
+      n: 0,
+      m: 0
     }
   }
 
-  add() {
-    //this.staten +=1 为什么不行
-    this.setState({n:this.state.n+1}) //n:1
-    this.setState((state) => { //setState 写成函数的形式
-      const n = state.n+1
-      return {n}
-    })
+  addN() {
+    this.setState({n: this.state.n + 1})
+  }
+
+  addM() {
+    this.setState({m: this.state.m + 1})
   }
 
   render() {
     return (
       <div className="Son">
         儿子 n: {this.state.n}
-        <button onClick={() => this.add()}>+1</button>
+        <button onClick={() => this.addN()}>+1</button>
+        m :{this.state.m}
+        <button onClick={() => this.addM()}>+1</button>
         <Grandson/>
       </div>
     )
@@ -43,10 +45,13 @@ class Son extends React.Component {
 
 const Grandson = () => {
   const [n, setN] = React.useState(0) //n用来读，setN用来写
+  const [m, setM] = React.useState(0) //n用来读，setN用来写
   return (
     <div className="Grandson">
       孙子 n:{n}
       <button onClick={() => setN(n + 1)}>+1</button>
+      m:{m}
+      <button onClick={() => setM(m + 1)}>+1</button>
     </div>
   )
 }
