@@ -26,9 +26,7 @@ class Son extends React.Component {
     }
   }
 
-  addN() {
-    this.setState({n: this.state.n + 1})
-  }
+  addN = () => this.setState({n: this.state.n + 1})
 
   addM() {
     this.setState({m: this.state.m + 1})
