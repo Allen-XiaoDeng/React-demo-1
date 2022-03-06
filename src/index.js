@@ -18,7 +18,11 @@ class Son extends React.Component {
     super()
     this.state = {
       n: 0,
-      m: 0
+      m: 0,
+      user: {
+        name: 'allen',
+        age: 18
+      }
     }
   }
 
@@ -30,6 +34,16 @@ class Son extends React.Component {
     this.setState({m: this.state.m + 1})
   }
 
+  changeUser() {
+    this.setState({
+      //m 和 n 不会被置空
+      user: {
+        name: 'jack'
+        //age被置空
+      }
+    })
+  }
+
   render() {
     return (
       <div className="Son">
@@ -37,6 +51,9 @@ class Son extends React.Component {
         <button onClick={() => this.addN()}>+1</button>
         m :{this.state.m}
         <button onClick={() => this.addM()}>+1</button>
+        <div>user.name:{this.state.user.name}</div>
+        <div>user.age:{this.state.user.age}</div>
+        <button onClick={() => this.changeUser()}>change user</button>
         <Grandson/>
       </div>
     )
